@@ -1,0 +1,9 @@
+name: migrate_authors
+type: module
+description: 'Este módulo contiene una migración personalizada de autores desde un archivo CSV.'
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - migrate_plus
+  - migrate_tools
+  - migrate_source_csv

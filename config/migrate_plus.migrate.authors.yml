@@ -1,0 +1,47 @@
+_core:
+  default_config_hash: 3eSfSME9ysVETNaio8scMhBvQxHZnnIsFGnsFXgiJ5M
+id: custom_authors_migration
+label: 'Custom authors migration'
+source:
+  plugin: csv
+  path: modules/custom/migrate_authors/data/datos_authors.csv
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - cc
+  fields:
+    -
+      name: cc
+      label: Cc
+    -
+      name: nombre
+      label: 'Nombre del autor'
+    -
+      name: apellido
+      label: 'Apellido del autor'
+    -
+      name: fecha_de_nacimiento
+      label: 'Fecha de nacimiento'
+    -
+      name: descripcion
+      label: 'descripcion del autor'
+process:
+  field_cc: cc
+  title:
+    plugin: concat
+    source:
+      - nombre
+      - apellido
+    delimiter: ' '
+  field_fecha_de_nacimiento:
+    plugin: format_date
+    from_format: Y-m-d
+    to_format: Y/m/d
+    source: fecha_de_nacimiento
+  body: descripcion
+  type:
+    plugin: default_value
+    default_value: authors
+destination:
+  plugin: 'entity:node'
