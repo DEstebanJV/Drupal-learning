@@ -39,12 +39,17 @@ process:
   field_fecha_de_nacimiento:
     plugin: format_date
     from_format: 'Y-m-d'
-    to_format: 'Y/m/d'
+    to_format: 'Y-m-d'
+    settings:
+     validate_format: false
     source: fecha_de_nacimiento
   body: descripcion
   type:
     plugin: default_value
     default_value: authors
+  uid:
+    plugin: default_value
+    default_value: 1
 
 destination:
   plugin: entity:node
