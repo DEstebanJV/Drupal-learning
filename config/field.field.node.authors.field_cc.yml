@@ -1,0 +1,19 @@
+uuid: a3cecbe6-d7ea-4f49-92c3-fee373a1e853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cc
+    - node.type.authors
+id: node.authors.field_cc
+field_name: field_cc
+entity_type: node
+bundle: authors
+label: cc
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

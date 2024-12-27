@@ -1,0 +1,48 @@
+uuid: 8be7a536-77bd-46ea-bd29-12634737e71c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.authors.body
+    - field.field.node.authors.field_cc
+    - field.field.node.authors.field_fecha_de_nacimiento
+    - node.type.authors
+  module:
+    - datetime
+    - text
+    - user
+id: node.authors.default
+targetEntityType: node
+bundle: authors
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_cc:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_fecha_de_nacimiento:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

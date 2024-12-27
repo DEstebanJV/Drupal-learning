@@ -1,0 +1,24 @@
+uuid: ca2ca868-393a-4b0e-9904-85bc1cc07838
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.authors
+  module:
+    - text
+id: node.authors.body
+field_name: body
+entity_type: node
+bundle: authors
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary
