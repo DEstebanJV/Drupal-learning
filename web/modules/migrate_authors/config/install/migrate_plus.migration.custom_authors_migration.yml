@@ -1,33 +1,43 @@
+uuid: 166a4a90-0bc9-4c83-8560-94823305d4f4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xfvVG6pc5YUZtyY3uczT6aTSQs3kRPnioHMGHwKznnc
 id: custom_authors_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
 label: 'Custom authors migration'
 source:
-  plugin: 'csv'
-
-  # Ruta donde se encuentra el csv de la migración
-  path: 'modules/migrate_authors/data/datos_authors.csv'
-
-  # Delimitador separador de la migración
+  plugin: csv
+  path: modules/migrate_authors/data/datos_authors.csv
   delimiter: ','
   enclosure: '"'
   header_row_count: 1
-
-  # declarar el campo 'cc' como único identificador
   ids:
     - cc
-
-  # Campos (opcional)
   fields:
-    - name: cc
-      label: 'Cc'
-    - name: nombre
+    -
+      name: cc
+      label: Cc
+    -
+      name: nombre
       label: 'Nombre del autor'
-    - name: apellido
+    -
+      name: apellido
       label: 'Apellido del autor'
-    - name: fecha_de_nacimiento
+    -
+      name: fecha_de_nacimiento
       label: 'Fecha de nacimiento'
-    - name: descripcion
+    -
+      name: descripcion
       label: 'Descripción del autor'
-
+    -
+      name: pais
+      label: Pais
 process:
   field_cc: cc
   title:
@@ -38,18 +48,25 @@ process:
     delimiter: ' '
   field_fecha_de_nacimiento:
     plugin: format_date
-    from_format: 'Y-m-d'
-    to_format: 'Y-m-d'
+    from_format: Y-m-d
+    to_format: Y-m-d
     settings:
-     validate_format: false
+      validate_format: false
     source: fecha_de_nacimiento
   body: descripcion
+  field_pais:
+    plugin: migration_lookup
+    migration: custom_paises
+    source: pais
+    no_stub: true # Esto evita que se cree el término si no se encuentra en la migración
   type:
     plugin: default_value
     default_value: authors
   uid:
     plugin: default_value
     default_value: 1
-
 destination:
-  plugin: entity:node
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - custom_paises
