@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.authors.body
     - field.field.node.authors.field_cc
     - field.field.node.authors.field_fecha_de_nacimiento
+    - field.field.node.authors.field_pais
     - node.type.authors
   module:
     - datetime
@@ -45,6 +46,16 @@ content:
     weight: 123
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_pais:
+    type: entity_reference_autocomplete
+    weight: 124
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   path:
     type: path
