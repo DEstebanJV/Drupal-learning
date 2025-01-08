@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: xwyistsUupTxV7kmOR5x613EKKJXT9ejGdu6IjOEQ-M
-profile_name: transcode_profile
+  default_config_hash: v83VUTAR7OncszyNbPEqLcS0ECSdGXjfMNE7e5nhYhw
+profile_id: high_quality
 enable_transcoding: 1
-profile_email: transcode_2@example.com
+profile_email: transcode@example.com
