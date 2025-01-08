@@ -58,7 +58,7 @@ process:
     plugin: migration_lookup
     migration: custom_paises
     source: pais
-    no_stub: true # Esto evita que se cree el término si no se encuentra en la migración
+    no_stub: true
   type:
     plugin: default_value
     default_value: authors

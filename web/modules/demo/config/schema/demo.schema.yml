@@ -1,0 +1,13 @@
+demo.settings:
+  type: config_object #config_object ya que estamos usando el subtipo de datos de configuración simple (y no un config_entity).
+  label: 'Demo module settings.'
+  mapping:
+    demo_label:
+      type: string # Can be any valid data type, such as boolean, string, float, email, uri
+      label: 'A demo label'
+    demo_checkbox:
+      type: boolean
+      label: 'A demo checkbox'
+    demo_email:
+      type: email
+      label: 'A demo email'

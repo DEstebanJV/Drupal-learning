@@ -1,0 +1,7 @@
+# Para garantizar que estas configuraciones se apliquen cuando un usuario instale el módulo, 
+#colocaremos este archivo en el directorio config/install de nuestro módulo. El nombre del 
+#archivo debe coincidir con la clave de la matriz de configuraciones en nuestro esquema con una extensión .yml . 
+#Las claves del archivo deben contener los elementos definidos en la matriz del esquema mappingcon valores del tipo de datos definido por el esquema.
+demo_label: "A Demo Label"
+demo_checkbox: 1
+demo_email: "demo@example.com"
