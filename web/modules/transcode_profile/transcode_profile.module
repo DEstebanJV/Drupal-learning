@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Transcode profile module.
+ */
+
+ use Drupal\core\Routing\RouteMatchInterface;
+
+ /**
+  * implements hook_help().
+  */
+
+  function transcode_profile_help($route_name, RouteMatchInterface $route_match ){
+    switch($route_name){
+        case 'help.page.transcode_profile':
+            $output = "";
+            $output .= '<h3>' . t('Transcode Profiles') . '</h3>';
+            $output .= '<p>' . t('video transcode profile manager.') . '</p>';
+            return $output;
+        default:
+    }
+  }
