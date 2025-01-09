@@ -19,6 +19,7 @@ final class TranscodeProfileListBuilder extends ConfigEntityListBuilder {
     $header['label'] = $this->t('Label');
     $header['id'] = $this->t('Machine name');
     $header['status'] = $this->t('Status');
+    $header['codec'] = $this->t('Codec');
     return $header + parent::buildHeader();
   }
 
@@ -30,6 +31,7 @@ final class TranscodeProfileListBuilder extends ConfigEntityListBuilder {
     $row['label'] = $entity->label();
     $row['id'] = $entity->id();
     $row['status'] = $entity->status() ? $this->t('Enabled') : $this->t('Disabled');
+    $row['codec'] = $entity->getCodec();
     return $row + parent::buildRow($entity);
   }
 

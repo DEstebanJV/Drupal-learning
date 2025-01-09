@@ -45,6 +45,7 @@ use Drupal\transcode_profile\TranscodeProfileInterface;
  *     "id",
  *     "label",
  *     "description",
+ *     "codec",
  *   },
  * )
  */
@@ -53,16 +54,29 @@ final class TranscodeProfile extends ConfigEntityBase implements TranscodeProfil
   /**
    * The example ID.
    */
-  protected string $id;
+  protected string $id = '';
 
   /**
    * The example label.
    */
-  protected string $label;
+  protected string $label = '';
 
   /**
-   * The example description.
+   * The example codec.
    */
-  protected string $description;
+  protected string $codec = '';
+
+  public function getCodec(): string {
+    return $this->get('codec') ?? '';
+  }
+
+  public function setCodec($codec) {
+    // Do something to the data.
+    $codec = strtolower($codec);
+  
+    // Set the new value
+    $this->set('codec', $codec);
+    return $this;
+  }
 
 }

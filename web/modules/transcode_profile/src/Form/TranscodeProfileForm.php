@@ -48,6 +48,12 @@ final class TranscodeProfileForm extends EntityForm {
       '#title' => $this->t('Description'),
       '#default_value' => $this->entity->get('description'),
     ];
+    $form['codec'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Codec'),
+      '#default_value' => $this->entity->getCodec(),
+      '#description' => $this->t('The video Codec to use '), 
+    ];
 
     return $form;
   }
@@ -56,6 +62,7 @@ final class TranscodeProfileForm extends EntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state): int {
+    $this->entity->setCodec($form_state->getValue('codec'));
     $result = parent::save($form, $form_state);
     $message_args = ['%label' => $this->entity->label()];
     $this->messenger()->addStatus(

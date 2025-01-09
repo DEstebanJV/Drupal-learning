@@ -11,4 +11,6 @@ use Drupal\Core\Config\Entity\ConfigEntityInterface;
  */
 interface TranscodeProfileInterface extends ConfigEntityInterface {
 
+    public function getCodec(): string;
+    public function setCodec($codec);
 }
